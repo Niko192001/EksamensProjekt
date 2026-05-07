@@ -7,4 +7,5 @@ We gonna have different package for different parts of the process
 3. Models
 4. Navigation
 5. viewmodel
+
 MainActivity
