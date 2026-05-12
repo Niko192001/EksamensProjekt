@@ -1,4 +1,4 @@
-In this Procject we are making a app for Danish company, that sells Custom made bra.
+In this Procject we are making an app for Danish company, that sells Custom made bra that fits your size.
 
 We gonna have different package for different parts of the process for a more cleaner look and it will be easier to navigate in
 
@@ -9,7 +9,7 @@ We gonna have different package for different parts of the process for a more cl
 5. Screens
 6. viewmodel
 
-MainActivity
+MainActivity.kt
 
 
 
