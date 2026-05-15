@@ -9,7 +9,10 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import com.example.neveranother.ui.theme.LightColorScheme
+import java.lang.ref.SoftReference
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -56,3 +59,13 @@ fun NeverAnotherTheme(
         content = content
     )
 }
+
+val SoftRose = Color(0xFFF4D7D9)
+val DeepCharcoal = Color(0xFF2A2A2A)
+
+private val LightColors = lightColorScheme(
+    primary = SoftRose,
+    onPrimary = DeepCharcoal,
+    background = Color.White,
+    onBackground = DeepCharcoal
+)
