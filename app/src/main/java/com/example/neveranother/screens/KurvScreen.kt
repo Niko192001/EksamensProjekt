@@ -14,6 +14,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.CalendarToday
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -133,7 +136,6 @@ fun KurvScreen() {
 
         Spacer(modifier = Modifier.height(28.dp))
 
-        // Her starter inputfelterne
         InputField(
             label = "Fornavn",
             value = "Emma"
@@ -159,19 +161,28 @@ fun KurvScreen() {
             label = "Telefonnummer",
             value = "+45 12 34 56 78"
         )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Nyt felt til fødselsdato
+        InputField(
+            label = "Fødselsdato",
+            value = "12/05-2000",
+            showCalendarIcon = true
+        )
     }
 }
 
 // Denne funktion laver ét inputfelt
-// Så vi ikke skal gentage den samme kode mange gange
+// showCalendarIcon bruges kun til fødselsdato-feltet
 @Composable
 fun InputField(
     label: String,
-    value: String
+    value: String,
+    showCalendarIcon: Boolean = false
 ) {
     Column {
 
-        // Labelen over feltet, fx Fornavn eller E-mail
         Text(
             text = label,
             fontSize = 14.sp,
@@ -180,7 +191,6 @@ fun InputField(
 
         Spacer(modifier = Modifier.height(7.dp))
 
-        // Selve den hvide boks
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -201,6 +211,17 @@ fun InputField(
                 fontSize = 15.sp,
                 color = Color.Black
             )
+
+            if (showCalendarIcon) {
+                Icon(
+                    imageVector = Icons.Outlined.CalendarToday,
+                    contentDescription = "Kalender",
+                    tint = Color.Black,
+                    modifier = Modifier
+                        .align(Alignment.CenterEnd)
+                        .size(20.dp)
+                )
+            }
         }
     }
 }
