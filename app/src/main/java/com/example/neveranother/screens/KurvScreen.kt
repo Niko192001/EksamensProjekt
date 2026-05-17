@@ -2,6 +2,7 @@ package com.example.neveranother.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,6 +17,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.CalendarToday
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -34,6 +38,9 @@ val BackgroundColor = Color(0xFFFAF5F2)
 // Mørkerød farve fra jeres design
 val Burgundy = Color(0xFF6A2128)
 
+// Lys cirkelfarve til valgt ikon i bundmenuen
+val LightCircle = Color(0xFFEFDFD5)
+
 @Composable
 fun KurvScreen() {
 
@@ -48,7 +55,7 @@ fun KurvScreen() {
                 .fillMaxSize()
                 .padding(horizontal = 24.dp)
                 .padding(top = 32.dp)
-                .padding(bottom = 90.dp)
+                .padding(bottom = 150.dp)
         ) {
 
             Text(
@@ -179,10 +186,10 @@ fun KurvScreen() {
             )
         }
 
-        // Fortsæt-knappen ligger nederst på siden
+        // Fortsæt-knappen ligger over bundmenuen
         Button(
             onClick = {
-                // Her kan vi senere skrive, hvad der skal ske, når man klikker
+                // Her kan vi senere skrive navigation til næste side
             },
             colors = ButtonDefaults.buttonColors(
                 containerColor = Burgundy
@@ -190,7 +197,7 @@ fun KurvScreen() {
             shape = RoundedCornerShape(14.dp),
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .padding(bottom = 24.dp)
+                .padding(bottom = 82.dp)
                 .padding(horizontal = 36.dp)
                 .fillMaxWidth()
                 .height(50.dp)
@@ -201,6 +208,11 @@ fun KurvScreen() {
                 color = Color.White
             )
         }
+
+        // Bundnavigation nederst på skærmen
+        BottomNavigationBar(
+            modifier = Modifier.align(Alignment.BottomCenter)
+        )
     }
 }
 
@@ -253,5 +265,60 @@ fun InputField(
                 )
             }
         }
+    }
+}
+
+// Denne funktion laver bundnavigationen
+@Composable
+fun BottomNavigationBar(
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(55.dp)
+            .background(BackgroundColor)
+            .border(1.dp, Color.Black),
+        horizontalArrangement = Arrangement.SpaceAround,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+
+        Icon(
+            imageVector = Icons.Outlined.Home,
+            contentDescription = "Hjem",
+            modifier = Modifier.size(30.dp),
+            tint = Color.Black
+        )
+
+        // Midlertidigt bruger vi Home-ikon til Fit.
+        // Senere kan vi skifte det til jeres eget målebåndsikon.
+        Icon(
+            imageVector = Icons.Outlined.Home,
+            contentDescription = "Fit",
+            modifier = Modifier.size(30.dp),
+            tint = Color.Black
+        )
+
+        // Kurv er den aktive side, derfor får den en lys cirkel bag sig
+        Box(
+            modifier = Modifier
+                .size(42.dp)
+                .background(LightCircle, CircleShape),
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                imageVector = Icons.Outlined.ShoppingCart,
+                contentDescription = "Kurv",
+                modifier = Modifier.size(29.dp),
+                tint = Color.Black
+            )
+        }
+
+        Icon(
+            imageVector = Icons.Outlined.Person,
+            contentDescription = "Profil",
+            modifier = Modifier.size(31.dp),
+            tint = Color.Black
+        )
     }
 }
