@@ -9,6 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.unit.sp
 val BackgroundColor = Color(0xFFFAF5F2)
 
 @Composable
@@ -20,6 +22,10 @@ fun KurvScreen() {
             .padding(horizontal = 24.dp)
             .padding(top = 32.dp)
     ) {
-        Text(text = "KurvScreen virker")
+        Text(
+            text = "KURV",
+            fontSize = 14.sp,
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        )
     }
 }
