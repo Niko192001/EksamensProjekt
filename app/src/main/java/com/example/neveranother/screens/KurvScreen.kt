@@ -16,6 +16,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.CalendarToday
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -35,146 +37,174 @@ val Burgundy = Color(0xFF6A2128)
 @Composable
 fun KurvScreen() {
 
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .background(BackgroundColor)
-            .padding(horizontal = 24.dp)
-            .padding(top = 32.dp)
     ) {
 
-        Text(
-            text = "KURV",
-            fontSize = 14.sp,
-            modifier = Modifier.align(Alignment.CenterHorizontally)
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 24.dp)
+                .padding(top = 32.dp)
+                .padding(bottom = 90.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .size(22.dp)
-                    .background(Burgundy, CircleShape),
-                contentAlignment = Alignment.Center
+
+            Text(
+                text = "KURV",
+                fontSize = 14.sp,
+                modifier = Modifier.align(Alignment.CenterHorizontally)
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             ) {
+                Box(
+                    modifier = Modifier
+                        .size(22.dp)
+                        .background(Burgundy, CircleShape),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = "1",
+                        color = Color.White,
+                        fontSize = 13.sp
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(8.dp))
+
                 Text(
-                    text = "1",
-                    color = Color.White,
-                    fontSize = 13.sp
+                    text = "Dine oplysninger",
+                    fontSize = 20.sp,
+                    color = Color.Black
                 )
             }
 
-            Spacer(modifier = Modifier.width(8.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
-            Text(
-                text = "Dine oplysninger",
-                fontSize = 20.sp,
-                color = Color.Black
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 72.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(8.dp)
+                        .background(Burgundy, CircleShape)
+                )
+
+                Box(
+                    modifier = Modifier
+                        .height(1.dp)
+                        .weight(1f)
+                        .background(Burgundy)
+                )
+
+                Box(
+                    modifier = Modifier
+                        .size(8.dp)
+                        .background(BackgroundColor, CircleShape)
+                        .border(1.dp, Burgundy, CircleShape)
+                )
+
+                Box(
+                    modifier = Modifier
+                        .height(1.dp)
+                        .weight(1f)
+                        .background(Burgundy)
+                )
+
+                Box(
+                    modifier = Modifier
+                        .size(8.dp)
+                        .background(BackgroundColor, CircleShape)
+                        .border(1.dp, Burgundy, CircleShape)
+                )
+
+                Box(
+                    modifier = Modifier
+                        .height(1.dp)
+                        .weight(1f)
+                        .background(Burgundy)
+                )
+
+                Box(
+                    modifier = Modifier
+                        .size(8.dp)
+                        .background(BackgroundColor, CircleShape)
+                        .border(1.dp, Burgundy, CircleShape)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(28.dp))
+
+            InputField(
+                label = "Fornavn",
+                value = "Emma"
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            InputField(
+                label = "Efternavn",
+                value = "Andersen"
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            InputField(
+                label = "E-mail",
+                value = "emma.andersen@hotmail.com"
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            InputField(
+                label = "Telefonnummer",
+                value = "+45 12 34 56 78"
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            InputField(
+                label = "Fødselsdato",
+                value = "12/05-2000",
+                showCalendarIcon = true
             )
         }
 
-        Spacer(modifier = Modifier.height(20.dp))
-
-        Row(
+        // Fortsæt-knappen ligger nederst på siden
+        Button(
+            onClick = {
+                // Her kan vi senere skrive, hvad der skal ske, når man klikker
+            },
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Burgundy
+            ),
+            shape = RoundedCornerShape(14.dp),
             modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 24.dp)
+                .padding(horizontal = 36.dp)
                 .fillMaxWidth()
-                .padding(horizontal = 72.dp),
-            verticalAlignment = Alignment.CenterVertically
+                .height(50.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .size(8.dp)
-                    .background(Burgundy, CircleShape)
-            )
-
-            Box(
-                modifier = Modifier
-                    .height(1.dp)
-                    .weight(1f)
-                    .background(Burgundy)
-            )
-
-            Box(
-                modifier = Modifier
-                    .size(8.dp)
-                    .background(BackgroundColor, CircleShape)
-                    .border(1.dp, Burgundy, CircleShape)
-            )
-
-            Box(
-                modifier = Modifier
-                    .height(1.dp)
-                    .weight(1f)
-                    .background(Burgundy)
-            )
-
-            Box(
-                modifier = Modifier
-                    .size(8.dp)
-                    .background(BackgroundColor, CircleShape)
-                    .border(1.dp, Burgundy, CircleShape)
-            )
-
-            Box(
-                modifier = Modifier
-                    .height(1.dp)
-                    .weight(1f)
-                    .background(Burgundy)
-            )
-
-            Box(
-                modifier = Modifier
-                    .size(8.dp)
-                    .background(BackgroundColor, CircleShape)
-                    .border(1.dp, Burgundy, CircleShape)
+            Text(
+                text = "Fortsæt",
+                fontSize = 22.sp,
+                color = Color.White
             )
         }
-
-        Spacer(modifier = Modifier.height(28.dp))
-
-        InputField(
-            label = "Fornavn",
-            value = "Emma"
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        InputField(
-            label = "Efternavn",
-            value = "Andersen"
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        InputField(
-            label = "E-mail",
-            value = "emma.andersen@hotmail.com"
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        InputField(
-            label = "Telefonnummer",
-            value = "+45 12 34 56 78"
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // Nyt felt til fødselsdato
-        InputField(
-            label = "Fødselsdato",
-            value = "12/05-2000",
-            showCalendarIcon = true
-        )
     }
 }
 
 // Denne funktion laver ét inputfelt
-// showCalendarIcon bruges kun til fødselsdato-feltet
 @Composable
 fun InputField(
     label: String,
